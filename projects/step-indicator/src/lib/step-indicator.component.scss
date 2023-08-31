@@ -1,0 +1,22 @@
+@use "@ontario-lrc/ontario-design-system-complete-styles/dist/styles/components/ontario-step-indicator/ontario-step-indicator.scss";
+
+.ontario-step-indicator
+{
+	margin-bottom: 2rem;
+
+	.ontario-step-indicator--with-back-button
+	{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		align-items: center;
+		align-content: center;
+	}
+
+	.ontario-step-indicator--without-back-button
+	{
+		text-align: right;
+		margin-bottom: 1.125rem;
+	}
+}

@@ -1,0 +1,6 @@
+/*
+ * Public API Surface of hint-expander
+ */
+export * from './lib/hint-expander.component';
+export * from './lib/hint-expander.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3Byb2plY3RzL2hpbnQtZXhwYW5kZXIvc3JjL3B1YmxpYy1hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0dBRUc7QUFFSCxjQUFjLCtCQUErQixDQUFDO0FBQzlDLGNBQWMsNEJBQTRCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuICogUHVibGljIEFQSSBTdXJmYWNlIG9mIGhpbnQtZXhwYW5kZXJcbiAqL1xuXG5leHBvcnQgKiBmcm9tICcuL2xpYi9oaW50LWV4cGFuZGVyLmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9oaW50LWV4cGFuZGVyLm1vZHVsZSc7XG4iXX0=

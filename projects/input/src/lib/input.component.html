@@ -1,0 +1,17 @@
+<div class="ontario-form-group">
+	<label class="ontario-label" for="signIn-input-{{id}}">
+		<span innerHTML="{{label}}">
+			{{label}}
+		</span>
+		
+		<span class="ontario-label__flag" *ngIf="isRequired">
+			({{requiredText}})
+		</span>
+	</label>
+
+	<p class="ontario-hint" id="signIn-hint-text-{{id}}" innerHTML="{{hintText}}" *ngIf="hintText !== undefined">
+		{{hintText}}
+	</p>
+	
+	<input class="ontario-input" type="{{type}}" id="signIn-input-{{id}}" [attr.min]="type === 'number' && min ? min : null" [attr.max]="type === 'number' && max ? max : null" />
+</div>

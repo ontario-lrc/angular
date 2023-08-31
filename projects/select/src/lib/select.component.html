@@ -1,0 +1,25 @@
+<div class="ontario-form-group">
+	<label class="ontario-label" for="dropdown-{{id}}">
+		{{label}}
+		
+		<span class="ontario-label__flag" *ngIf="isRequired">
+			({{requiredText}})
+		</span>
+	</label>
+	
+	<select class="ontario-input ontario-dropdown" id="dropdown-{{id}}" name="dropdown-{{id}}">
+		<option value="">
+			{{initOptionText}}
+		</option>
+
+		<ng-container *ngFor="let option of options">
+			<option value="{{option.value}}">
+				{{option.text}}
+			</option>
+		</ng-container>
+	</select>
+
+	<ng-container *ngIf="hintExpanderID && hintExpanderShortText && hintExpanderLongCode">
+		<ods-hint-expander [id]="hintExpanderID || ''" [shortHintText]="hintExpanderShortText || ''" [longHintText]="hintExpanderLongCode || ''"></ods-hint-expander>
+	</ng-container>
+</div>

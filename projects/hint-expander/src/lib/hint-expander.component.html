@@ -1,0 +1,19 @@
+<div class="ontario-hint-expander__container">
+	<button class="ontario-hint-expander__button" id="hint-expander-button-{{id}}" [attr.aria-controls]="'hint-expander-content-' + id" aria-expanded="false" data-toggle="ontario-collapse">
+		<span class="ontario-hint-expander__button-icon--close">
+			<img src="..\assets\ontario-icon-chevron-up.svg" alt="{{chevronUpAltText}}" aria-hidden="true" />
+		</span>
+		
+		<span class="ontario-hint-expander__button-icon--open">
+			<img src="..\assets\ontario-icon-chevron-down.svg" alt="{{chevronDownAltText}}" aria-hidden="true" />
+		</span>
+        
+		<span innerHTML="{{shortHintText}}">
+			{{shortHintText}}
+		</span>
+	</button>
+	
+	<div class="ontario-hint-expander__content" id="hint-expander-content-{{id}}" [attr.aria-labelledby]="'hint-expander-button-' + id" aria-hidden="true" data-toggle="ontario-expander-content" innerHTML="{{longHintText}}">
+		{{longHintText}}
+	</div>
+</div>

@@ -1,0 +1,132 @@
+@use "@ontario-lrc/ontario-design-system-global-styles/dist/styles/scss/1-variables/colours.variables" as ods-colours;
+@use "@ontario-lrc/ontario-design-system-complete-styles/dist/styles/components/ontario-button/ontario-button.scss" as ods-buttons;
+
+%disabled
+{
+	opacity: 0.25;
+	cursor: not-allowed;
+}
+
+@mixin ontario-button--primary__custom($background-colour, $background-colour__hover, $filter: false)
+{
+	@extend .ontario-button--primary;
+
+	background-color: $background-colour;
+
+	&:hover,
+	&:focus
+	{
+		background-color: $background-colour__hover;
+	}
+
+	&:disabled
+	{
+		@extend %disabled;
+	}
+
+	@if $filter
+	{
+		img
+		{
+			filter: unquote($filter);
+		}
+	}
+}
+
+@mixin ontario-button--secondary__custom($text-and-border-colour, $background-colour__hover, $background-colour: white, $filter: false)
+{
+	@extend .ontario-button--secondary;
+
+	background-color: $background-colour;
+	border-color: $text-and-border-colour;
+	color: $text-and-border-colour;
+
+	&:hover,
+	&:focus
+	{
+		background-color: $background-colour__hover;
+		border-color: $text-and-border-colour;
+		color: $text-and-border-colour;
+	}
+
+	&:disabled
+	{
+		@extend %disabled;
+	}
+
+	@if $filter
+	{
+		img
+		{
+			filter: unquote($filter);
+		}
+	}
+}
+
+@mixin ontario-button--tertiary__custom($text-colour, $filter: false)
+{
+	@extend .ontario-button--tertiary;
+
+	color: $text-colour;
+
+	&:hover,
+	&:focus
+	{
+		color: $text-colour;
+	}
+
+	&:disabled
+	{
+		@extend %disabled;
+	}
+
+	@if $filter
+	{
+		img
+		{
+			filter: unquote($filter);
+		}
+	}
+}
+
+.ontario-button
+{
+	&.ontario-button--primary
+	{
+		&__green
+		{
+			@include ontario-button--primary__custom(ods-colours.$ontario-colour-success, ods-colours.$ontario-colour-green, "invert(1)");
+		}
+
+		&__red
+		{
+			@include ontario-button--primary__custom(ods-colours.$ontario-colour-alert, ods-colours.$ontario-colour-red, "invert(1)");
+		}
+	}
+
+	&.ontario-button--secondary
+	{
+		&__green
+		{
+			@include ontario-button--secondary__custom(ods-colours.$ontario-colour-success, ods-colours.$ontario-colour-success-light);
+		}
+
+		&__red
+		{
+			@include ontario-button--secondary__custom(ods-colours.$ontario-colour-alert, ods-colours.$ontario-colour-alert-light);
+		}
+	}
+
+	&.ontario-button--tertiary
+	{
+		&__green
+		{
+			@include ontario-button--tertiary__custom(ods-colours.$ontario-colour-success);
+		}
+
+		&__red
+		{
+			@include ontario-button--tertiary__custom(ods-colours.$ontario-colour-alert);
+		}
+	}
+}

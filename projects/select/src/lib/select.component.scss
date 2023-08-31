@@ -1,0 +1,9 @@
+@use "@ontario-lrc/ontario-design-system-component-library/src/components/ontario-dropdown-list/ontario-dropdown-list.scss";
+
+ods-select
+{
+	select
+	{
+		background-image: url("/assets/ontario-design-system/icons/svg/ontario-icon-dropdown-arrow.svg");
+	}
+}
