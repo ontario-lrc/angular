@@ -1,1 +1,44 @@
+# This workflow will do a clean installation of node dependencies, build the source code
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "master" ]
+    
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+    - uses: actions/checkout@v3
+    
+    - name: Use Node.js 18.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+        
+    - name: Install dependencies
+    - run: npm ci
+
+    - name: Building button
+    - run: npm run build button --configruation=production
+
+    - name: Building hint-expander
+    - run: npm run build hint-expander --configuration=production
+
+    - name: Building input
+    - run: npm run build input --configuration=production
+
+    - name: Building page-alert
+    - run: npm run build page-alert --configruation=production
+
+    - name: Building select
+    - run: npm run build select --configruation=production
+
+    - name: Building step-indicator
+    - run: npm run build step-indicator --configuration=production
