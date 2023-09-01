@@ -22,23 +22,12 @@ jobs:
       with:
         node-version: 18.x
         
-    - name: Install dependencies
-    - run: npm ci
-
-    - name: Building button
-    - run: npm run build button --configruation=production
-
-    - name: Building hint-expander
-    - run: npm run build hint-expander --configuration=production
-
-    - name: Building input
-    - run: npm run build input --configuration=production
-
-    - name: Building page-alert
-    - run: npm run build page-alert --configruation=production
-
-    - name: Building select
-    - run: npm run build select --configruation=production
-
-    - name: Building step-indicator
-    - run: npm run build step-indicator --configuration=production
+    - name: Install dependencies and build
+      run: |
+        npm ci
+        npm run build button --configruation=production
+        npm run build hint-expander --configuration=production
+        npm run build input --configuration=production
+        npm run build page-alert --configruation=production
+        npm run build select --configruation=production
+        npm run build step-indicator --configuration=production
