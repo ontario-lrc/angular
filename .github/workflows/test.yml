@@ -34,10 +34,12 @@ jobs:
         npm run build select --configruation=production
         npm run build step-indicator --configuration=production
 
-    - name: Show current directory contents
-      run: ls
+    # - name: Show dist directory contents
+    #   run: |
+    #     cd dist
+    #     ls
 
-    - name: Show dist directory contents
-      run: |
-        cd dist
-        ls
+    - name: Release to NPM
+      env:
+        GITHUB_TOKEN: ${{NPM_AUTH_TOKEN_FOR_GITHUB_ONTARIO_LRC}}
+      run: npm publish dist --dry-run
