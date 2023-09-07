@@ -4,16 +4,14 @@
 	"private": false,
 	"description": "A collection of reusable Angular components using the ODS, customized for LRC's needs. The goal is to provide developers with a centralized location for ODS-LRC Angular components to share, collaborate, and leverage reusable code, promoting code reusability and reducing development time and effort.",
 	"license": "Apache-2.0",
-	"scripts":
-	{
+	"scripts": {
 		"ng": "ng",
 		"start": "ng serve",
 		"build": "ng build",
 		"watch": "ng build --watch --configuration development",
 		"test": "ng test"
 	},
-	"dependencies":
-	{
+	"dependencies": {
 		"@angular/animations": "^16.2.0",
 		"@angular/common": "^16.2.0",
 		"@angular/compiler": "^16.2.0",
@@ -28,8 +26,7 @@
 		"tslib": "^2.3.0",
 		"zone.js": "~0.13.0"
 	},
-	"devDependencies":
-	{
+	"devDependencies": {
 		"@angular-devkit/build-angular": "^16.2.0",
 		"@angular/cli": "~16.2.0",
 		"@angular/compiler-cli": "^16.2.0",
@@ -43,24 +40,20 @@
 		"ng-packagr": "^16.2.0",
 		"typescript": "~5.1.3"
 	},
-	"publishConfig":
-	{
+	"publishConfig": {
 		"access": "public"
 	},
-	"authors":
-	[
+	"authors": [
 		{
 			"name": "Dawid Kasperowicz",
 			"email": "dawid.kasperowicz@ontario.ca"
 		}
 	],
-	"repository":
-	{
+	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/ontario-lrc/ontario-design-system-angular-component-library.git"
 	},
-	"bugs":
-	{
+	"bugs": {
 		"url": "https://github.com/ontario-lrc/ontario-design-system-angular-component-library/issues"
 	},
 	"homepage": "https://github.com/ontario-lrc/ontario-design-system-angular-component-library#readme"
