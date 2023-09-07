@@ -36,7 +36,7 @@ jobs:
         npm run build step-indicator --configuration=production
 
     - name: Upload dist folder
-      uses: actions/upload-artifact@v3.x
+      uses: actions/upload-artifact@v3
       with:
         name: distArtifact
         path: dist
@@ -51,7 +51,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Download dist folder
-      uses: actions/download-artifact@v2.x
+      uses: actions/download-artifact@v2
       with:
         name: distArtifact
 
