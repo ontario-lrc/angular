@@ -39,7 +39,7 @@ jobs:
       uses: actions/upload-artifact@v3.1.3
       with:
         name: distArtifact
-        path: /dist
+        path: dist
         error: Artifact is nonexistant
 
   release:
@@ -54,7 +54,7 @@ jobs:
       uses: actions/download-artifact@v2.1.1
       with:
         name: distArtifact
-        path: /dist
+        path: dist
 
     - name: Show dist directory contents
       run: |
