@@ -34,8 +34,10 @@ jobs:
         npm run build select --configruation=production
         npm run build step-indicator --configuration=production
 
-    - name: Log (only for testing output of structure; looking for dist folder and structure)
+    - name: Show current directory contents
+      run: ls
+
+    - name: Show dist directory contents
       run: |
-        ls
         cd dist
         ls
