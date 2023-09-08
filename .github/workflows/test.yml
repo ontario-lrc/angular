@@ -66,8 +66,7 @@ jobs:
       env:
         GH_TOKEN: ${{ github.token }}
       run: |
-        gh release create 1.0.0-beta.0 --draft
-        gh release upload dist
+        gh release create 1.0.0-beta.0 dist/* --draft
 
   publish:
     needs: [build, release]
