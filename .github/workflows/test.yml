@@ -61,12 +61,12 @@ jobs:
         cd dist
         ls
 
-    - name: Create new GitHub release
+    - name: Make a new release
+      env:
+        GH_TOKEN: ${{ github.token }}
       run: |
         gh release create --draft
-
-    - name: Upload dist directory to newly created GitHubRelease
-      run: gh release upload dist
+        gh release upload dist
 
   publish:
     needs: [build, release]
