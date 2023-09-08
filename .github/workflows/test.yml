@@ -68,7 +68,7 @@ jobs:
     - name: Make a new release with tarbal
       env:
         GH_TOKEN: ${{github.token}}
-      run: gh release create 1.0.0-beta.0 dist.tar.gz --notes-file changelog.md --draft
+      run: gh release create latest dist.tar.gz --notes-file changelog.md
 
   publish:
     needs: [build, release]
