@@ -61,6 +61,13 @@ jobs:
         cd dist
         ls
 
+    - name: Create new GitHub release
+      run: |
+        gh release create --draft
+
+    - name: Upload dist directory to newly created GitHubRelease
+      run: gh release upload dist
+
   publish:
     needs: [build, release]
     runs-on: ubuntu-latest
