@@ -78,5 +78,5 @@ jobs:
     steps:
       - name: Release to NPM
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN_FOR_GITHUB_ONTARIO_LRC}}
+          NODE_AUTH_TOKEN: ${{secrets.NPMAUTHTOKENFORGITHUBONTARIOLRC}}
         run: npm publish dist --tag beta
