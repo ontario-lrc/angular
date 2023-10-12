@@ -40,7 +40,7 @@ jobs:
       with:
         name: distArtifact
         path: dist
-        error: Artifact is nonexistant
+        if-no-files-found: Artifact is nonexistant
 
   release:
     needs: build
@@ -80,6 +80,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
+          registry-url: "https://registry.npmjs.org"
         
       - name: Release to NPM
         env:
