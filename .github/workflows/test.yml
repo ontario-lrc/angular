@@ -92,10 +92,10 @@ jobs:
           name: distArtifact
           path: dist
 
-      - name: Show dist directory contents
-        run: |
-          cd dist
-          ls
+      # - name: Show dist directory contents
+      #   run: |
+      #     cd dist
+      #     ls
 
       # - name: Create tarball
       #   run: tar -zcvf dist.tar.gz dist
