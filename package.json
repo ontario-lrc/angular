@@ -11,6 +11,13 @@
 		"watch": "ng build --watch --configuration development",
 		"test": "ng test"
 	},
+	"files":
+	[
+		"dist/",
+		"projects/",
+		"package.json",
+		"README.md"
+	],
 	"dependencies": {
 		"@angular/animations": "^16.2.0",
 		"@angular/common": "^16.2.0",
