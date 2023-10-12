@@ -82,6 +82,23 @@ jobs:
         with:
           node-version: 18.x
           registry-url: "https://registry.npmjs.org"
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Download dist folder
+        uses: actions/download-artifact@v2.1.1
+        with:
+          name: distArtifact
+          path: dist
+
+      - name: Show dist directory contents
+        run: |
+          cd dist
+          ls
+
+      - name: Create tarball
+        run: tar -zcvf dist.tar.gz dist
         
       - name: Release to NPM
         env:
