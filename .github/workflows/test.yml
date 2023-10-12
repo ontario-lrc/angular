@@ -86,11 +86,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      # - name: Download dist folder
-      #   uses: actions/download-artifact@v2.1.1
-      #   with:
-      #     name: distArtifact
-      #     path: dist
+      - name: Download dist folder
+        uses: actions/download-artifact@v2.1.1
+        with:
+          name: distArtifact
+          path: dist
 
       # - name: Show dist directory contents
       #   run: |
