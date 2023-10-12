@@ -14,10 +14,7 @@ export class OdsPageAlertComponent
 	@Input() type: OdsPageAlertType = OdsPageAlertType.INFORMATIONAL;
 	@Input() heading!: string;
 	@Input() message!: string;
-	@Input() informationalAltTtext!: string;
-	@Input() warningAltText!: string;
-	@Input() successAltText!: string;
-	@Input() errorAltText!: string;
+	@Input() iconAltText!: string;
 }
 
 const OdsPageAlertType =

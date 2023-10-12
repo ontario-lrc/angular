@@ -1,10 +1,7 @@
 <div class="ontario-alert ontario-alert--{{type}}">
 	<div class="ontario-alert__header">
 		<div class="ontario-alert__header-icon" aria-hidden="true">
-			<img src="..\..\assets\ontario-icon-alert-information.svg" alt="{{informationalAltTtext}}" aria-hidden="true" *ngIf="type === 'informational'" />
-			<img src="..\..\assets\ontario-icon-alert-warning.svg" alt="{{warningAltText}}" aria-hidden="true" *ngIf="type === 'warning'" />
-			<img src="..\..\assets\ontario-icon-alert-success.svg" alt="{{successAltText}}" aria-hidden="true" *ngIf="type === 'success'" />
-			<img src="..\..\assets\ontario-icon-alert-error.svg" alt="{{errorAltText}}" aria-hidden="true" *ngIf="type === 'error'" />
+			<img src="..\..\assets\ontario-icon-alert-{{type}}.svg" alt="{{iconAltText}}" aria-hidden="true" />
 		</div>
 		
 		<h2 innerHTML="{{heading}}" class="ontario-alert__header-title ontario-h4">
