@@ -74,6 +74,7 @@ jobs:
   publish:
     needs: [build, release]
     runs-on: ubuntu-latest
+    permissions: write-all
 
     steps:
       - name: Use Node.js 18.x
@@ -85,6 +86,4 @@ jobs:
       - name: Release to NPM
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMAUTHTOKENFORGITHUBONTARIOLRC}}
-        run: |
-          cd dist
-          npm publish --tag beta --access public
+        run: npm publish dist.tar.gz --tag beta --access public
