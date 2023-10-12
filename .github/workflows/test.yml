@@ -74,6 +74,7 @@ jobs:
   publish:
     needs: [build, release]
     runs-on: ubuntu-latest
+    permissions: write-all
 
     steps:
       - name: Use Node.js 18.x
@@ -81,8 +82,28 @@ jobs:
         with:
           node-version: 18.x
           registry-url: "https://registry.npmjs.org"
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Download dist folder
+        uses: actions/download-artifact@v2.1.1
+        with:
+          name: distArtifact
+          path: dist
+
+      # - name: Show dist directory contents
+      #   run: |
+      #     cd dist
+      #     ls
+
+      # - name: Create tarball
+      #   run: tar -zcvf dist.tar.gz dist
+
+      - name: Pack for NPM
+        run: npm pack
         
       - name: Release to NPM
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMAUTHTOKENFORGITHUBONTARIOLRC}}
-        run: npm publish dist --tag beta --access public
+        run: npm publish --tag beta --access public
