@@ -40,7 +40,7 @@ jobs:
       with:
         name: distArtifact
         path: dist
-        if-no-files-found: Artifact is nonexistant
+        error: Artifact is nonexistant
 
   release:
     needs: build
