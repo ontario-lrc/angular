@@ -15,6 +15,7 @@ export class OdsPageAlertComponent
 	@Input() heading!: string;
 	@Input() message!: string;
 	@Input() iconAltText!: string;
+	@Input() iconFolder!: string;
 }
 
 const OdsPageAlertType =
