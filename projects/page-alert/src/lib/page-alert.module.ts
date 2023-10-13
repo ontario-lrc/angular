@@ -1,5 +1,6 @@
 import {NgModule} from "@angular/core";
 import {OdsPageAlertComponent} from "./page-alert.component";
+import {CommonModule} from "@angular/common";
 
 
 @NgModule(
@@ -8,7 +9,10 @@ import {OdsPageAlertComponent} from "./page-alert.component";
 	[
 		OdsPageAlertComponent
 	],
-	imports: [],
+	imports:
+	[
+		CommonModule
+	],
 	exports:
 	[
 		OdsPageAlertComponent
