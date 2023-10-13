@@ -1,4 +1,4 @@
-<div class="ontario-alert" [ngClass]="{'ontario-alert--informational': type === 'information', 'ontario-alert--{{type}}': type !== 'information'}">
+<div class="ontario-alert" [ngClass]="type === 'information' ? 'ontario-alert--informational' : 'ontario-alert--' + type">
 	<div class="ontario-alert__header">
 		<div class="ontario-alert__header-icon" aria-hidden="true">
 			<img src="{{iconFolder}}/ontario-icon-alert-{{type}}.svg" alt="{{iconAltText}}" aria-hidden="true" />
