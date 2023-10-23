@@ -1,6 +1,5 @@
 import {NgModule} from "@angular/core";
 import {OdsAccordionComponent} from "./accordion.component";
-import {CommonModule} from "@angular/common";
 
 @NgModule(
 {
@@ -8,14 +7,11 @@ import {CommonModule} from "@angular/common";
 	[
 		OdsAccordionComponent
 	],
-	imports:
-	[
-		CommonModule
-	],
+	imports:[],
 	exports:
 	[
 		OdsAccordionComponent
 	]
 })
 
-export class AccordionModule{}
+export class OdsAccordionModule{}

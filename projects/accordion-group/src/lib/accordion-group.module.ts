@@ -14,4 +14,4 @@ import {OdsAccordionGroupComponent} from "./accordion-group.component";
 	]
 })
 
-export class AccordionGroupModule{}
+export class OdsAccordionGroupModule{}
