@@ -1,0 +1,19 @@
+@import "@ontario-lrc/ontario-design-system-complete-styles/dist/styles/scss/1-variables/global.variables";
+@import "@ontario-lrc/ontario-design-system-complete-styles/dist/styles/scss/1-variables/spacing.variables";
+
+.ontario-accordions__container
+{
+	width: $full-width;
+	margin-bottom: $spacing-4;
+	border-bottom: 2px solid #cccccc;
+
+	.ontario-accordion
+	{
+		margin-bottom: 0;
+
+		&:last-of-type
+		{
+			border-bottom: none;
+		}
+	}
+}

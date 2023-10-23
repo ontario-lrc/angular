@@ -1,0 +1,191 @@
+@import "@ontario-lrc/ontario-design-system-complete-styles/dist/styles/scss/1-variables/global.variables";
+@import "@ontario-lrc/ontario-design-system-complete-styles/dist/styles/scss/1-variables/colours.variables";
+@import "@ontario-lrc/ontario-design-system-complete-styles/dist/styles/scss/1-variables/typography.variables";
+@import "@ontario-lrc/ontario-design-system-complete-styles/dist/styles/scss/1-variables/spacing.variables";
+// @import "../../../../assets/scss/ontario-design-system/12col-grid.variables.scss";
+@import "@ontario-lrc/ontario-design-system-complete-styles/dist/styles/scss/2-tools/placeholder/focus.placeholders";
+
+.ontario-accordion
+{
+	border-top: 2px solid $ontario-greyscale-20;
+	margin-bottom: $spacing-4;
+
+	&:last-of-type
+	{
+		border-bottom: 2px solid $ontario-greyscale-20;
+	}
+
+	&__controls
+	{
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&__button,
+	&__button--expand-all
+	{
+		background: none;
+		border: 0;
+		box-sizing: border-box;
+	}
+
+	&__button--expand-all
+	{
+		font-size: 1rem;
+		margin-bottom: $spacing-2;
+		color: $ontario-colour-link;
+		cursor: pointer;
+	
+		&:focus,
+		&:hover
+		{
+			color: $ontario-colour-link--hover;
+			text-decoration: underline;
+		}
+	
+		&:focus
+		{
+			@extend %ontario-focus;
+		}
+	
+		&:active
+		{
+			color: $ontario-colour-link--active;
+			text-decoration: underline;
+		}
+	}
+
+	&--expand-close-all
+	{
+		display: none;
+	}
+
+	&__controls--active
+	{
+		.ontario-accordion--expand-close-all
+		{
+			display: block;
+		}
+	
+		.ontario-accordion--expand-open-all
+		{
+			display: none;
+		}
+	}
+
+	&__button
+	{
+		display: flex;
+		align-items: flex-start;
+	
+		color: $ontario-colour-link;
+		cursor: pointer;
+		padding: $spacing-3 $spacing-2;
+		text-align: left;
+		width: $full-width;
+	
+		p,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6
+		{
+			@extend %h4-styles;
+			margin-bottom: 0;
+		}
+	
+		&-icon--close,
+		&-icon--open
+		{
+			margin-right: $spacing-2;
+		}
+	
+		.ontario-icon
+		{
+			width: 1.75rem;
+			height: 1.75rem;
+		}
+	
+		&:focus,
+		&:hover
+		{
+			background-color: $ontario-greyscale-5;
+			color: $ontario-colour-link--hover;
+		}
+	
+		&:focus
+		{
+			@extend %ontario-focus;
+			box-shadow: 0 0 0 4px $ontario-colour-focus inset;
+		}
+	
+		&:active
+		{
+			color: $ontario-colour-link--active;
+		}
+	}
+
+	&__content
+	{
+		display: none;
+		padding: $spacing-3 $spacing-3 $spacing-6 $spacing-3;
+		margin-left: 0;
+	
+		*:not(button)
+		{
+			margin-top: 0;
+			// max-width: $standard-width;
+			width: $full-width;
+		}
+	
+		ul,
+		ol
+		{
+			max-width: calc(100% - 3rem);
+		}
+	
+		& > :last-child
+		{
+			margin-bottom: 0;
+		}
+	}
+
+	&__button-icon--close
+	{
+		display: none;
+	}
+}
+
+.ontario-expander--active
+{
+	.ontario-accordion__content,
+	.ontario-accordion__button-icon--close
+	{
+		display: block;
+	}
+
+	.ontario-accordion__button-icon--open
+	{
+		display: none;
+	}
+}
+
+.ontario-accordion__button
+{
+	align-items: center;
+
+	img
+	{
+		filter: invert(27%) sepia(85%) saturate(1789%) hue-rotate(194deg) brightness(92%) contrast(105%);
+	}
+
+	&:hover,
+	&:focus
+	{
+		img
+		{
+			filter: invert(16%) sepia(47%) saturate(4359%) hue-rotate(198deg) brightness(96%) contrast(101%);
+		}
+	}
+}

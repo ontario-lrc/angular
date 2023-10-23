@@ -1,0 +1,55 @@
+<div class="ontario-accordion" id="accordion-{{accordionID}}" #accordionGroup>
+	<ng-container *ngTemplateOutlet="headerTemplate" />
+
+	<section class="ontario-accordion__content" id="accordion-content-{{accordionID}}" attr.aria-labelledby="accordion-button-id-{{accordionID}}" aria-hidden="true" data-toggle="ontario-expander-content">
+		<ng-content />
+
+		<hr />
+
+		<div class="ontario-accordion__content--controls">
+			<button type="button" class="ontario-button ontario-button--secondary" (click)="closeAccordionPanel();">
+				Close
+			</button>
+		</div>
+	</section>
+</div>
+
+<ng-template #headingLevelTemplate>
+	<h1 class="ontario-accordion-heading" *ngIf="headingLevel === 'h1'">
+		{{title}}
+	</h1>
+
+	<h2 class="ontario-accordion-heading" *ngIf="headingLevel === 'h2'">
+		{{title}}
+	</h2>
+
+	<h3 class="ontario-accordion-heading" *ngIf="headingLevel === 'h3'">
+		{{title}}
+	</h3>
+
+	<h4 class="ontario-accordion-heading" *ngIf="headingLevel === 'h4'">
+		{{title}}
+	</h4>
+
+	<h5 class="ontario-accordion-heading" *ngIf="headingLevel === 'h5'">
+		{{title}}
+	</h5>
+
+	<h6 class="ontario-accordion-heading" *ngIf="headingLevel === 'h6'">
+		{{title}}
+	</h6>
+</ng-template>
+
+<ng-template #headerTemplate>
+	<button #accordionGroup class="ontario-accordion__button" id="accordion-button-id-{{accordionID}}" attr.aria-controls="accordion-content-{{accordionID}}" aria-expanded="false" data-toggle="ontario-collapse">
+		<span class="ontario-accordion__button-icon--close">
+			<img src="{{iconFolder}}/ontario-icon-chevron-down.svg" alt="{{closeIconAlt}}" />
+		</span>
+
+		<span class="ontario-accordion__button-icon--open">
+			<img src="{{iconFolder}}/ontario-icon-chevron-up.svg" alt="{{openIconAlt}}" />
+		</span>
+
+		<ng-container *ngTemplateOutlet="headingLevelTemplate" />
+	</button>
+</ng-template>

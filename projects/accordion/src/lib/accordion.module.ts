@@ -1,12 +1,12 @@
 import {NgModule} from "@angular/core";
-import {OdsPageAlertComponent} from "./page-alert.component";
+import {OdsAccordionComponent} from "./accordion.component";
 import {CommonModule} from "@angular/common";
 
 @NgModule(
 {
 	declarations:
 	[
-		OdsPageAlertComponent
+		OdsAccordionComponent
 	],
 	imports:
 	[
@@ -14,8 +14,8 @@ import {CommonModule} from "@angular/common";
 	],
 	exports:
 	[
-		OdsPageAlertComponent
+		OdsAccordionComponent
 	]
 })
 
-export class OdsPageAlertModule{}
+export class AccordionModule{}

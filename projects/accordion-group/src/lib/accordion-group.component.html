@@ -1,0 +1,15 @@
+<div class="ontario-accordions__container">
+	<div class="ontario-accordion__controls" *ngIf="expandAll && collapseAll">
+		<button class="ontario-accordion__button--expand-all" aria-expanded="false">
+			<span class="ontario-accordion--expand-open-all" innerHTML="{{expandAll}}">
+				{{expandAll}}
+			</span>
+            
+			<span class="ontario-accordion--expand-close-all" innerHTML="{{collapseAll}}">
+				{{collapseAll}}
+			</span>
+		</button>
+	</div>
+
+	<ng-content />
+</div>

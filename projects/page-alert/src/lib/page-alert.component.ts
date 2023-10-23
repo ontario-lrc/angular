@@ -12,11 +12,11 @@ import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from "@ang
 export class OdsPageAlertComponent
 {
 	@Input() type: OdsPageAlertType = OdsPageAlertType.INFORMATION;
-	@Input() headingLevel!: OdsPageAlertHeadingLevel;
-	@Input() heading!: string;
-	@Input() message!: string;
-	@Input() iconAltText!: string;
-	@Input() iconFolder!: string;
+	@Input({required: true}) headingLevel!: OdsPageAlertHeadingLevel;
+	@Input({required: true}) heading!: string;
+	@Input({required: true}) message!: string;
+	@Input({required: true}) iconAltText!: string;
+	@Input({required: true}) iconFolder!: string;
 }
 
 const OdsPageAlertType =

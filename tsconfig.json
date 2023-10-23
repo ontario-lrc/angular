@@ -4,6 +4,12 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
+      "accordion": [
+        "dist/accordion"
+      ],
+      "accordion-group": [
+        "dist/accordion-group"
+      ],
       "button": [
         "dist/button"
       ],
