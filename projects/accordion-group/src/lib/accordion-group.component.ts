@@ -1,5 +1,5 @@
 import {AfterViewInit, ChangeDetectionStrategy, Component, Host, Input, ModuleWithProviders, ViewEncapsulation} from "@angular/core";
-import {AccordionGroupService} from "@ontario-lrc/angular-services/dist/accordion-group";
+// import {AccordionGroupService} from "@ontario-lrc/angular-services/dist/accordion-group";
 
 @Component(
 {
@@ -18,7 +18,8 @@ export class OdsAccordionGroupComponent implements AfterViewInit
 	@Input({required: false}) onlyOneOpen: boolean = false;
 
 	// constructor(@Host() private _accordionGroupService: AccordionGroupService){}
-	constructor(private _accordionGroupService: AccordionGroupService){}
+	// constructor(private _accordionGroupService: AccordionGroupService){}
+	constructor(){}
 
 	ngAfterViewInit(): void
 	{
@@ -29,10 +30,10 @@ export class OdsAccordionGroupComponent implements AfterViewInit
 	{
 		if(this.onlyOneOpen)
 		{
-			this._accordionGroupService.getAccordionsInGroup.forEach((accordion: HTMLButtonElement) =>
-			{
-				this._accordionGroupService.setOnClickEvent = accordion;
-			});
+			// this._accordionGroupService.getAccordionsInGroup.forEach((accordion: HTMLButtonElement) =>
+			// {
+			// 	this._accordionGroupService.setOnClickEvent = accordion;
+			// });
 		}
 	}
 }
