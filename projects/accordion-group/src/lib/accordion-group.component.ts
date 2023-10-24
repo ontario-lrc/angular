@@ -1,4 +1,4 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, Host, Input, ViewEncapsulation} from "@angular/core";
+import {AfterViewInit, ChangeDetectionStrategy, Component, Host, Input, ModuleWithProviders, ViewEncapsulation} from "@angular/core";
 import {AccordionGroupService} from "@ontario-lrc/angular-services/dist/accordion-group";
 
 @Component(
@@ -6,7 +6,7 @@ import {AccordionGroupService} from "@ontario-lrc/angular-services/dist/accordio
 	selector: "ods-accordion-group",
 	templateUrl: "./accordion-group.component.html",
 	styleUrls: ["./accordion-group.component.scss"],
-	providers: [AccordionGroupService],
+	// providers: [AccordionGroupService],
 	encapsulation: ViewEncapsulation.None,
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
