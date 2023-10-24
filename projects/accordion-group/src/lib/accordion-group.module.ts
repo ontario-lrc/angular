@@ -1,5 +1,6 @@
 import {NgModule} from "@angular/core";
 import {OdsAccordionGroupComponent} from "./accordion-group.component";
+import {AccordionGroupService} from "@ontario-lrc/angular-services/dist/accordion-group";
 
 @NgModule(
 {
@@ -8,6 +9,10 @@ import {OdsAccordionGroupComponent} from "./accordion-group.component";
 		OdsAccordionGroupComponent
 	],
 	imports:[],
+	providers:
+	[
+		AccordionGroupService
+	],
 	exports:
 	[
 		OdsAccordionGroupComponent
