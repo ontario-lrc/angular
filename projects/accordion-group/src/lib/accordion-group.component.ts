@@ -6,7 +6,7 @@ import {AccordionGroupService} from "@ontario-lrc/angular-services/dist/accordio
 	selector: "ods-accordion-group",
 	templateUrl: "./accordion-group.component.html",
 	styleUrls: ["./accordion-group.component.scss"],
-	providers: [AccordionGroupService],
+	// providers: [AccordionGroupService],
 	encapsulation: ViewEncapsulation.None,
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
