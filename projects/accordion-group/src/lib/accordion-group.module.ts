@@ -7,7 +7,7 @@ import {OdsAccordionGroupComponent} from "./accordion-group.component";
 	[
 		OdsAccordionGroupComponent
 	],
-	imports: [],
+	imports:[],
 	exports:
 	[
 		OdsAccordionGroupComponent
