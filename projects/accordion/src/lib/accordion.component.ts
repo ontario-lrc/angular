@@ -28,7 +28,8 @@ export class OdsAccordionComponent implements OnInit, AfterViewInit
 	private _script: string = "/ontario-expand-collapse.js";
 	private _scriptElement!: HTMLScriptElement;
 
-	constructor(private _loadScriptService: LoadScriptService, private _renderer: Renderer2, @SkipSelf() private _accordionGroupService: AccordionGroupService){}
+	// constructor(private _loadScriptService: LoadScriptService, private _renderer: Renderer2, @SkipSelf() private _accordionGroupService: AccordionGroupService){}
+	constructor(private _loadScriptService: LoadScriptService, private _renderer: Renderer2, private _accordionGroupService: AccordionGroupService){}
 
 	ngOnInit(): void
 	{
