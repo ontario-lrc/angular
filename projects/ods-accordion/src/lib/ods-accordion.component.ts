@@ -1,6 +1,6 @@
 import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, Renderer2, SkipSelf, ViewChildren, ViewEncapsulation} from "@angular/core";
-import {LoadScriptService} from "@ontario-lrc/angular-services/dist/load-script";
-import {AccordionGroupService} from "@ontario-lrc/angular-services/dist/accordion-group";
+import {LoadScriptService} from "@ontario-lrc/angular-services/dist/load-script-service";
+import {OdsAccordionGroupService} from "@ontario-lrc/angular-services/dist/ods-accordion-group-service";
 
 @Component(
 {
@@ -29,7 +29,7 @@ export class OdsAccordionComponent implements OnInit, AfterViewInit
 	private _scriptElement!: HTMLScriptElement;
 
 	// constructor(private _loadScriptService: LoadScriptService, private _renderer: Renderer2, @SkipSelf() private _accordionGroupService: AccordionGroupService){}
-	constructor(private _loadScriptService: LoadScriptService, private _renderer: Renderer2, private _accordionGroupService: AccordionGroupService){}
+	constructor(private _loadScriptService: LoadScriptService, private _renderer: Renderer2, private _odsAccordionGroupService: OdsAccordionGroupService){}
 
 	ngOnInit(): void
 	{
@@ -74,7 +74,7 @@ export class OdsAccordionComponent implements OnInit, AfterViewInit
 
 	private _setup(): void
 	{
-		this._accordionGroupService.addToAccordionsInGroup = this.accordionGroup.last.nativeElement;
+		this._odsAccordionGroupService.addToAccordionsInGroup = this.accordionGroup.last.nativeElement;
 	}
 }
 
