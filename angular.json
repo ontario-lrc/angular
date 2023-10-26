@@ -52,7 +52,7 @@
               "tsConfig": "projects/ods-hint-expander/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/odshint-expander/tsconfig.lib.json"
+              "tsConfig": "projects/ods-hint-expander/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
