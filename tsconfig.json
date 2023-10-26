@@ -4,29 +4,29 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "accordion": [
-        "dist/accordion"
+      "ods-accordion": [
+        "dist/ods-accordion"
       ],
-      "accordion-group": [
-        "dist/accordion-group"
+      "ods-accordion-group": [
+        "dist/ods-accordion-group"
       ],
-      "button": [
-        "dist/button"
+      "ods-button": [
+        "dist/ods-button"
       ],
-      "hint-expander": [
-        "dist/hint-expander"
+      "ods-hint-expander": [
+        "dist/ods-hint-expander"
       ],
-      "input": [
-        "dist/input"
+      "ods-input": [
+        "dist/ods-input"
       ],
-      "page-alert": [
-        "dist/page-alert"
+      "ods-page-alert": [
+        "dist/ods-page-alert"
       ],
-      "select": [
-        "dist/select"
+      "ods-select": [
+        "dist/ods-select"
       ],
-      "step-indicator": [
-        "dist/step-indicator"
+      "ods-step-indicator": [
+        "dist/ods-step-indicator"
       ]
     },
     "outDir": "./dist/out-tsc",

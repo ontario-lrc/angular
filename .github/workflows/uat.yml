@@ -28,14 +28,14 @@ jobs:
 
     - name: Build projects in library
       run: |
-        npm run build accordion --configruation=production
-        npm run build accordion-group --configruation=production
-        npm run build button --configruation=production
-        npm run build hint-expander --configuration=production
-        npm run build input --configuration=production
-        npm run build page-alert --configruation=production
-        npm run build select --configruation=production
-        npm run build step-indicator --configuration=production
+        npm run build ods-accordion --configruation=production
+        npm run build ods-accordion-group --configruation=production
+        npm run build ods-button --configruation=production
+        npm run build ods-hint-expander --configuration=production
+        npm run build ods-input --configuration=production
+        npm run build ods-page-alert --configruation=production
+        npm run build ods-select --configruation=production
+        npm run build ods-step-indicator --configuration=production
 
     - name: Upload dist folder
       uses: actions/upload-artifact@v3.1.3
