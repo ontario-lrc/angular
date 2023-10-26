@@ -1,6 +1,6 @@
 {
 	"$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-	"dest": "../../dist/hint-expander",
+	"dest": "../../dist/ods-hint-expander",
 	"lib":
 	{
 		"entryFile": "src/public-api.ts"
