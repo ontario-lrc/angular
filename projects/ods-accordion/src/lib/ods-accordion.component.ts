@@ -13,7 +13,7 @@ import {OdsAccordionGroupService} from "@ontario-lrc/angular-services/dist/ods-a
 
 export class OdsAccordionComponent implements OnInit, AfterViewInit
 {
-	@Input({required: true}) accordionID: string = "UNDEFINED";
+	@Input({required: true}) accordionID!: string;
 	@Input({required: true}) headingLevel!: OdsAccordionHeadingLevel;
 	@Input({required: true}) title!: string;
 	@Input({required: true}) iconFolder!: string;
@@ -21,20 +21,19 @@ export class OdsAccordionComponent implements OnInit, AfterViewInit
 	@Input({required: true}) openIconAlt!: string;
 	@Input({required: true}) ontarioExpandCollapseScriptLocation!: string;
 
-	@Output() accordionTriggered: EventEmitter<ElementRef<HTMLButtonElement>> = new EventEmitter<ElementRef<HTMLButtonElement>>;
+	// @Output() accordionTriggered: EventEmitter<ElementRef<HTMLButtonElement>> = new EventEmitter<ElementRef<HTMLButtonElement>>;
 
 	@ViewChildren("accordionGroup") accordionGroup!: QueryList<ElementRef<HTMLButtonElement>>;
 
-	private _script: string = "/ontario-expand-collapse.js";
-	private _scriptElement!: HTMLScriptElement;
+	private readonly _script: string = "/ontario-expand-collapse.js";
+	private _scriptElement!: HTMLScriptElement | undefined;
 
-	// constructor(private _loadScriptService: LoadScriptService, private _renderer: Renderer2, @SkipSelf() private _accordionGroupService: AccordionGroupService){}
-	constructor(private _loadScriptService: LoadScriptService, private _renderer: Renderer2, private _odsAccordionGroupService: OdsAccordionGroupService){}
+	constructor(private _loadScriptService: LoadScriptService, private _renderer: Renderer2, @SkipSelf() private _odsAccordionGroupService: OdsAccordionGroupService){}
+	// constructor(private _loadScriptService: LoadScriptService, private _renderer: Renderer2, private _odsAccordionGroupService: OdsAccordionGroupService){}
 
 	ngOnInit(): void
 	{
 		this._removeScript();
-		this._addScript();
 	}
 
 	ngAfterViewInit(): void
@@ -45,22 +44,42 @@ export class OdsAccordionComponent implements OnInit, AfterViewInit
 
 	protected closeAccordionPanel(): void
 	{
-		this.accordionGroup.last.nativeElement.click();
+		this._renderer.selectRootElement(this.accordionGroup.last?.nativeElement.click());
 	}
 
 	private _addScript(): void
 	{
-		Array.from(document.scripts).forEach((script: HTMLScriptElement) =>
+		// Array.from(document.scripts).forEach((script: HTMLScriptElement) =>
+		// {
+		// 	if(script.src.includes(this._script))
+		// 	{
+		// 		this._scriptElement = script;
+		// 	}
+		// });
+
+		// if(!this._scriptElement)
+		// {
+		// 	this._scriptElement = this._loadScriptService.loadScript(this._renderer, (this.ontarioExpandCollapseScriptLocation + this._script));
+		// }
+
+		const scripts: Array<HTMLScriptElement> = Array.from(document.scripts);
+		const scriptFound: boolean = scripts.some((script: HTMLScriptElement) =>
 		{
 			if(script.src.includes(this._script))
 			{
 				this._scriptElement = script;
+
+				return true;
 			}
+
+			return false;
 		});
 
-		if(!this._scriptElement)
+		if(!scriptFound)
 		{
-			this._scriptElement = this._loadScriptService.loadScript(this._renderer, (this.ontarioExpandCollapseScriptLocation + this._script));
+			const scriptLocation: string = this.ontarioExpandCollapseScriptLocation + this._script;
+
+			this._scriptElement = this._loadScriptService.loadScript(this._renderer, scriptLocation);
 		}
 	}
 
@@ -77,15 +96,3 @@ export class OdsAccordionComponent implements OnInit, AfterViewInit
 		this._odsAccordionGroupService.addToAccordionsInGroup = this.accordionGroup.last.nativeElement;
 	}
 }
-
-const OdsAccordionHeadingLevel =
-{
-	H1: "h1" as "h1",
-	H2: "h2" as "h2",
-	H3: "h3" as "h3",
-	H4: "h4" as "h4",
-	H5: "h5" as "h5",
-	H6: "h6" as "h6"
-};
-
-type OdsAccordionHeadingLevel = (typeof OdsAccordionHeadingLevel)[keyof typeof OdsAccordionHeadingLevel]

@@ -1,12 +1,12 @@
 import {AfterViewInit, ChangeDetectionStrategy, Component, Host, Input, ModuleWithProviders, ViewEncapsulation} from "@angular/core";
-// import {AccordionGroupService} from "@ontario-lrc/angular-services/dist/accordion-group";
+import {OdsAccordionGroupService} from "@ontario-lrc/angular-services/dist/ods-accordion-group-service";
 
 @Component(
 {
 	selector: "ods-accordion-group",
 	templateUrl: "./ods-accordion-group.component.html",
 	styleUrls: ["./ods-accordion-group.component.scss"],
-	// providers: [AccordionGroupService],
+	providers: [OdsAccordionGroupService],
 	encapsulation: ViewEncapsulation.None,
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -17,9 +17,7 @@ export class OdsAccordionGroupComponent implements AfterViewInit
 	@Input({required: true}) collapseAll!: string;
 	@Input({required: false}) onlyOneOpen: boolean = false;
 
-	// constructor(@Host() private _accordionGroupService: AccordionGroupService){}
-	// constructor(private _accordionGroupService: AccordionGroupService){}
-	constructor(){}
+	constructor(@Host() private _accordionGroupService: OdsAccordionGroupService){}
 
 	ngAfterViewInit(): void
 	{
@@ -30,10 +28,12 @@ export class OdsAccordionGroupComponent implements AfterViewInit
 	{
 		if(this.onlyOneOpen)
 		{
-			// this._accordionGroupService.getAccordionsInGroup.forEach((accordion: HTMLButtonElement) =>
-			// {
-			// 	this._accordionGroupService.setOnClickEvent = accordion;
-			// });
+			const accordions: HTMLButtonElement[] = this._accordionGroupService.getAccordionsInGroup;
+			
+			accordions.forEach((accordion: HTMLButtonElement) =>
+			{
+				this._accordionGroupService.setOnClickEvent = accordion;
+			});
 		}
 	}
 }
