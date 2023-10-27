@@ -1,5 +1,6 @@
 import {NgModule} from "@angular/core";
 import {OdsAccordionGroupComponent} from "./ods-accordion-group.component";
+import {CommonModule} from "@angular/common";
 
 @NgModule(
 {
@@ -7,7 +8,10 @@ import {OdsAccordionGroupComponent} from "./ods-accordion-group.component";
 	[
 		OdsAccordionGroupComponent
 	],
-	imports:[],
+	imports:
+	[
+		CommonModule
+	],
 	exports:
 	[
 		OdsAccordionGroupComponent
