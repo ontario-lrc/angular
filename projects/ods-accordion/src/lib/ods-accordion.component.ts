@@ -30,7 +30,6 @@ export class OdsAccordionComponent implements OnInit, AfterViewInit
 	private _scriptElement!: HTMLScriptElement | undefined;
 
 	constructor(private _loadScriptService: LoadScriptService, private _renderer: Renderer2, @SkipSelf() private _odsAccordionGroupService: OdsAccordionGroupService){}
-	// constructor(private _loadScriptService: LoadScriptService, private _renderer: Renderer2, private _odsAccordionGroupService: OdsAccordionGroupService){}
 
 	ngOnInit(): void
 	{
@@ -45,24 +44,11 @@ export class OdsAccordionComponent implements OnInit, AfterViewInit
 
 	protected closeAccordionPanel(): void
 	{
-		this._renderer.selectRootElement(this.accordionGroup.last?.nativeElement.click());
+		this.accordionGroup.last?.nativeElement.click();
 	}
 
 	private _addScript(): void
 	{
-		// Array.from(document.scripts).forEach((script: HTMLScriptElement) =>
-		// {
-		// 	if(script.src.includes(this._script))
-		// 	{
-		// 		this._scriptElement = script;
-		// 	}
-		// });
-
-		// if(!this._scriptElement)
-		// {
-		// 	this._scriptElement = this._loadScriptService.loadScript(this._renderer, (this.ontarioExpandCollapseScriptLocation + this._script));
-		// }
-
 		const scripts: Array<HTMLScriptElement> = Array.from(document.scripts);
 		const scriptFound: boolean = scripts.some((script: HTMLScriptElement) =>
 		{
