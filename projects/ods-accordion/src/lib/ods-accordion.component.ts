@@ -1,6 +1,7 @@
 import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, Renderer2, SkipSelf, ViewChildren, ViewEncapsulation} from "@angular/core";
 import {LoadScriptService} from "@ontario-lrc/angular-services/dist/load-script-service";
 import {OdsAccordionGroupService} from "@ontario-lrc/angular-services/dist/ods-accordion-group-service";
+import {OdsAccordionHeadingLevel} from "./ods-accordion.component.constants";
 
 @Component(
 {

@@ -8,4 +8,4 @@ const OdsAccordionHeadingLevel =
 	H6: "h6" as "h6"
 };
 
-type OdsAccordionHeadingLevel = (typeof OdsAccordionHeadingLevel)[keyof typeof OdsAccordionHeadingLevel]
+export type OdsAccordionHeadingLevel = (typeof OdsAccordionHeadingLevel)[keyof typeof OdsAccordionHeadingLevel]
