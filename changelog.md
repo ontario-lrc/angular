@@ -10,6 +10,7 @@ The following customized Ontario Design System Angular components were added:
 - accordion
 - accordion-group
 - back to top
+- breadcrumbs
 - button
 - hint-expander
 - input
