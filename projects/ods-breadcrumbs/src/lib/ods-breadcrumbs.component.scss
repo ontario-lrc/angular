@@ -1,0 +1,40 @@
+@use "@ontario-lrc/ontario-design-system-complete-styles/dist/styles/scss/1-variables/spacing.variables" as spacing;
+@use "@ontario-lrc/ontario-design-system-complete-styles/dist/styles/scss/1-variables/font-weights.variables" as font-weights;
+ods-breadcrumbs
+{
+	ul
+	{
+		margin: 0 0 spacing.$spacing-4 0;
+		list-style: none;
+
+		li
+		{
+			width: max-content;
+			display: inline-block;
+			padding: 0;
+
+			&::before
+			{
+				content: "\02C3";
+				font-weight: font-weights.$ontario-font-weights-bold;
+				padding: 0 spacing.$spacing-2;
+			}
+
+			&:last-of-type
+			{
+				&::after
+				{
+					content: "";
+					font-weight: inherit;
+					padding: 0;
+				}
+			}
+
+			p
+			{
+				margin: 0;
+				display: inline-block;
+			}
+		}
+	}
+}

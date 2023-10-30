@@ -13,6 +13,9 @@
       "ods-back-to-top": [
         "dist/ods-back-to-top"
       ],
+      "ods-breadcrumbs": [
+        "dist/ods-breadcrumbs"
+      ],
       "ods-button": [
         "dist/ods-button"
       ],

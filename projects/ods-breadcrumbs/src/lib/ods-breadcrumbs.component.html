@@ -1,0 +1,13 @@
+<ul class="ontario-column ontario-small-12 ontario-medium-12 ontario-large-12">
+	<li *ngFor="let item of breadcrumbs">
+		<p>
+			<a [routerLink]="[item.link]" *ngIf="item?.link else noLink">
+				{{item.text}}
+			</a>
+
+			<ng-template #noLink>
+				{{item.text}}
+			</ng-template>
+		</p>
+	</li>
+</ul>
