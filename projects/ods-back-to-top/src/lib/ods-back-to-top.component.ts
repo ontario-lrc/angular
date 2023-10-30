@@ -3,7 +3,7 @@ import {LoadScriptService} from "@ontario-lrc/angular-services/dist/load-script-
 
 @Component(
 {
-	selector: 'ods-back-to-top',
+	selector: "ods-back-to-top",
 	templateUrl: "./ods-back-to-top.component.html",
 	styleUrls: ["./ods-back-to-top.component.scss"],
 	encapsulation: ViewEncapsulation.None,
@@ -13,7 +13,6 @@ import {LoadScriptService} from "@ontario-lrc/angular-services/dist/load-script-
 export class OdsBackToTopComponent implements AfterViewInit
 {
 	@Input({required: true}) scriptFolder!: string;
-	@Input({required: true}) text!: string;
 	@Input({required: true}) iconFolder!: string;
 	@Input({required: true}) iconAltText!: string;
 
