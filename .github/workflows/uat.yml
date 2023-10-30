@@ -30,6 +30,7 @@ jobs:
       run: |
         npm run build ods-accordion --configruation=production
         npm run build ods-accordion-group --configruation=production
+        npm run build ods-back-to-top --configruation=production
         npm run build ods-button --configruation=production
         npm run build ods-hint-expander --configuration=production
         npm run build ods-input --configuration=production

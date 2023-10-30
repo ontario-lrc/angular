@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 The following customized Ontario Design System Angular components were added:
 - accordion
 - accordion-group
+- back to top
 - button
 - hint-expander
 - input

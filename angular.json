@@ -266,6 +266,39 @@
           }
         }
       }
+    },
+    "ods-back-to-top": {
+      "projectType": "library",
+      "root": "projects/ods-back-to-top",
+      "sourceRoot": "projects/ods-back-to-top/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ods-back-to-top/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ods-back-to-top/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ods-back-to-top/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/ods-back-to-top/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   }
 }

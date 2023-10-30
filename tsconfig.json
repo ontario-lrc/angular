@@ -10,6 +10,9 @@
       "ods-accordion-group": [
         "dist/ods-accordion-group"
       ],
+      "ods-back-to-top": [
+        "dist/ods-back-to-top"
+      ],
       "ods-button": [
         "dist/ods-button"
       ],
