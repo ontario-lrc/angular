@@ -17,6 +17,14 @@ export class OdsButtonComponent
 	@Input() clickMethod!: () => void;
 
 	constructor(){}
+
+	protected executeClickMethod(): void
+	{
+		if(this.clickMethod)
+		{
+			this.clickMethod();
+		}
+	}
 }
 
 const OdsButtonDegree =
