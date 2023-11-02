@@ -14,7 +14,6 @@ export class OdsButtonComponent
 	@Input() id!: string;
 	@Input() degree: OdsButtonDegree = OdsButtonDegree.PRIMARY;
 	@Input() colour: OdsButtonColour = OdsButtonColour.DEFAULT;
-	@Input() text: string = "";
 
 	@Output() onClick: EventEmitter<void> = new EventEmitter();
 
