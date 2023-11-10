@@ -14,7 +14,6 @@ export class OdsPageAlertComponent
 	@Input() type: OdsPageAlertType = OdsPageAlertType.INFORMATION;
 	@Input({required: true}) headingLevel!: OdsPageAlertHeadingLevel;
 	@Input({required: true}) heading!: string;
-	@Input({required: true}) message!: string;
 	@Input({required: true}) iconAltText!: string;
 	@Input({required: true}) iconFolder!: string;
 }
