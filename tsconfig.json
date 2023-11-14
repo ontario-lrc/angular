@@ -25,6 +25,9 @@
       "ods-input": [
         "dist/ods-input"
       ],
+      "ods-loading-indicator": [
+        "dist/ods-loading-indicator"
+      ],
       "ods-page-alert": [
         "dist/ods-page-alert"
       ],

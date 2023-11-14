@@ -34,6 +34,7 @@ jobs:
         npm run build ods-button --configruation=production
         npm run build ods-hint-expander --configuration=production
         npm run build ods-input --configuration=production
+        npm run build ods-loading-indicator --configruation=production
         npm run build ods-page-alert --configruation=production
         npm run build ods-select --configruation=production
         npm run build ods-step-indicator --configuration=production

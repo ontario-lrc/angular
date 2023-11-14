@@ -17,3 +17,4 @@ The following customized Ontario Design System Angular components were added:
 - page-alert
 - select
 - step-indicator
+- loading-indicator
