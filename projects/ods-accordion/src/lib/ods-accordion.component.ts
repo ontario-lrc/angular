@@ -22,8 +22,6 @@ export class OdsAccordionComponent implements OnInit, AfterViewInit
 	@Input({required: true}) openIconAlt!: string;
 	@Input({required: true}) ontarioExpandCollapseScriptLocation!: string;
 
-	// @Output() accordionTriggered: EventEmitter<ElementRef<HTMLButtonElement>> = new EventEmitter<ElementRef<HTMLButtonElement>>;
-
 	@ViewChildren("accordionGroup") accordionGroup!: QueryList<ElementRef<HTMLButtonElement>>;
 
 	private readonly _script: string = "/ontario-expand-collapse.js";

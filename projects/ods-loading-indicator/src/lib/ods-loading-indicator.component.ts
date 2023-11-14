@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewEncapsulation} from "@angular/core";
+import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from "@angular/core";
 
 @Component(
 {
@@ -11,5 +11,17 @@ import {ChangeDetectionStrategy, Component, ViewEncapsulation} from "@angular/co
 
 export class OdsLoadingIndicatorComponent
 {
+	@Input({required: true}) type!: OdsLoadingIndicatorType;
 
+	constructor(){}
 }
+
+const OdsLoadingIndicatorType =
+{
+	OVERLAY: "overlay" as "overlay",
+	section: "section" as "section"
+};
+
+type OdsLoadingIndicatorType = (typeof OdsLoadingIndicatorType)[keyof typeof OdsLoadingIndicatorType];
+
+export{OdsLoadingIndicatorType};
