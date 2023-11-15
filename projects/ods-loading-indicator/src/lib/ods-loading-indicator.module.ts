@@ -1,5 +1,6 @@
 import {NgModule} from "@angular/core";
 import {OdsLoadingIndicatorComponent} from "./ods-loading-indicator.component";
+import {CommonModule} from "@angular/common";
 
 @NgModule(
 {
@@ -7,7 +8,7 @@ import {OdsLoadingIndicatorComponent} from "./ods-loading-indicator.component";
 	[
 		OdsLoadingIndicatorComponent
 	],
-	imports:[],
+	imports:[CommonModule],
 	exports:
 	[
 		OdsLoadingIndicatorComponent
