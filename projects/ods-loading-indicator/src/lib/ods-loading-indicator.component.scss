@@ -43,6 +43,13 @@ $dasharray: 89, 200;
 	width: 100%;
 	height: 100%;
 
+	&.block
+	{
+		display: block;
+		text-align: center;
+		margin-top: spacing.$spacing-6;
+	}
+
 	p
 	{
 		color: colours.$ontario-greyscale-70;

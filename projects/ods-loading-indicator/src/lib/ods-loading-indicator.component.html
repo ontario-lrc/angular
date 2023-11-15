@@ -8,7 +8,7 @@
 </ng-template>
 
 <ng-template #sectionLoading>
-	<div class="ontario-loading-indicator">
+	<div class="ontario-loading-indicator" [class.block]="type === 'section'">
 		<ng-container *ngTemplateOutlet="content" />
 	</div>
 </ng-template>
