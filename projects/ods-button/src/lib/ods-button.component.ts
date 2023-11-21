@@ -14,7 +14,6 @@ export class OdsButtonComponent
 	@Input() id!: string;
 	@Input() degree: OdsButtonDegree = OdsButtonDegree.PRIMARY;
 	@Input() colour: OdsButtonColour = OdsButtonColour.DEFAULT;
-	@Input() tooltip!: string;
 	@Input() clickMethod!: () => void;
 
 	constructor(){}

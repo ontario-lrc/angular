@@ -1,6 +1,5 @@
 import {NgModule} from "@angular/core";
 import {OdsButtonComponent} from "./ods-button.component";
-import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule(
 {
@@ -8,10 +7,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 	[
 		OdsButtonComponent
 	],
-	imports:
-	[
-		MatTooltipModule
-	],
+	imports: [],
 	exports:
 	[
 		OdsButtonComponent
