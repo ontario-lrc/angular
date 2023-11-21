@@ -1,3 +1,18 @@
-<button type="button" class="ontario-button" (click)="executeClickMethod();" [class.ontario-button--primary]="degree === 'primary' && colour === 'default'" [class.ontario-button--primary__green]="degree === 'primary' && colour === 'green'" [class.ontario-button--primary__red]="degree === 'primary' && colour === 'red'" [class.ontario-button--secondary]="degree === 'secondary' && colour === 'default'" [class.ontario-button--secondary__green]="degree === 'secondary' && colour === 'green'" [class.ontario-button--secondary__red]="degree === 'secondary' && colour === 'red'" [class.ontario-button--tertiary]="degree === 'tertiary' && colour === 'default'" [class.ontario-button--tertiary__green]="degree === 'tertiary' && colour === 'green'" [class.ontario-button--tertiary__red]="degree === 'tertiary' && colour === 'red'" [attr.id]="id">
+<button
+	type="button"
+	class="ontario-button"
+	(click)="executeClickMethod();"
+	[class.ontario-button--primary]="degree === 'primary' && colour === 'default'"
+	[class.ontario-button--primary__green]="degree === 'primary' && colour === 'green'"
+	[class.ontario-button--primary__red]="degree === 'primary' && colour === 'red'"
+	[class.ontario-button--secondary]="degree === 'secondary' && colour === 'default'"
+	[class.ontario-button--secondary__green]="degree === 'secondary' && colour === 'green'"
+	[class.ontario-button--secondary__red]="degree === 'secondary' && colour === 'red'"
+	[class.ontario-button--tertiary]="degree === 'tertiary' && colour === 'default'"
+	[class.ontario-button--tertiary__green]="degree === 'tertiary' && colour === 'green'"
+	[class.ontario-button--tertiary__red]="degree === 'tertiary' && colour === 'red'"
+	[attr.id]="id"
+	[attr.matTooltip]="tooltip"
+>
 	<ng-content />
 </button>
