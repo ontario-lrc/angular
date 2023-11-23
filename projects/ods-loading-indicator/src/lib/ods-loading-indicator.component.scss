@@ -33,21 +33,14 @@ $dasharray: 89, 200;
 
 .ontario-loading-indicator
 {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	width: 100%;
-	height: 100%;
+	display: block;
+	text-align: center;
+	margin: spacing.$spacing-6 0;
 
-	&.block
+	svg
 	{
 		display: block;
-		text-align: center;
-		margin-top: spacing.$spacing-6;
+		margin: 0 auto;
 	}
 
 	p
