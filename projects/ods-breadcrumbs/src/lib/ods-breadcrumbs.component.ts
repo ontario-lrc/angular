@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from "@angular/core";
-import {OdsBreadcrumbsInterface} from "./ods-breadcrumbs.interface";
+import {OdsBreadcrumbsType} from "./ods-breadcrumbs.type";
 
 @Component(
 {
@@ -11,7 +11,7 @@ import {OdsBreadcrumbsInterface} from "./ods-breadcrumbs.interface";
 })
 export class OdsBreadcrumbsComponent
 {
-	@Input({required: true}) breadcrumbs!: OdsBreadcrumbsInterface[];
+	@Input({required: true}) breadcrumbs!: OdsBreadcrumbsType[];
 
 	constructor(){}
 }

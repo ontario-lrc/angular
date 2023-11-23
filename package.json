@@ -1,6 +1,6 @@
 {
   "name": "@ontario-lrc/ontario-design-system-angular-component-library",
-  "version": "1.0.0-beta.48",
+  "version": "1.0.0-beta.49",
   "private": false,
   "description": "A collection of reusable Angular components using the ODS, customized for LRC's needs. The goal is to provide developers with a centralized location for ODS-LRC Angular components to share, collaborate, and leverage reusable code, promoting code reusability and reducing development time and effort.",
   "license": "Apache-2.0",
