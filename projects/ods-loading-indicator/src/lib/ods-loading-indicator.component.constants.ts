@@ -1,7 +1,9 @@
 const OdsLoadingIndicatorType =
 {
-	OVERLAY: "overlay" as "overlay",
-	SECTION: "section" as "section"
+	OVERLAY_ALL: "overlayAll" as "overlayAll",
+	OVERLAY_SECTION: "overlaySection" as "overlaySection",
+	INLINE_SECTION: "inlineSection" as "inlineSection"
+	
 };
 
 type OdsLoadingIndicatorType = (typeof OdsLoadingIndicatorType)[keyof typeof OdsLoadingIndicatorType];

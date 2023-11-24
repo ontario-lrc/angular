@@ -1,13 +1,14 @@
-<ng-container *ngIf="type === 'overlay' then overlayLoading" />
-<ng-container *ngIf="type === 'section' then sectionLoading" />
+<ng-container *ngIf="type === 'overlayAll' then overlayAllLoading" />
+<ng-container *ngIf="type === 'overlaySection' then overlaySectionLoding" />
+<ng-container *ngIf="type === 'inlineSection' then inlineSectionLoading" />
 
-<ng-template #overlayLoading>
+<ng-template #overlayAllLoading>
 	<div class="ontario-loading-indicator__overlay" aria-hidden="false" role="alert" aria-live="assertive">
-		<ng-container *ngTemplateOutlet="sectionLoading" />
+		<ng-container *ngTemplateOutlet="inlineSectionLoading" />
 	</div>
 </ng-template>
 
-<ng-template #sectionLoading>
+<ng-template #inlineSectionLoading>
 	<div class="ontario-loading-indicator">
 		<ng-container *ngTemplateOutlet="content" />
 	</div>
@@ -19,4 +20,10 @@
 	</svg>
 
 	<ng-content />
+</ng-template>
+
+<ng-template #overlaySectionLoding>
+	<div class="ontario-loading-indicator__overlay sectionOverlay" aria-hidden="false" role="alert" aria-live="assertive">
+		<ng-container *ngTemplateOutlet="inlineSectionLoading" />
+	</div>
 </ng-template>

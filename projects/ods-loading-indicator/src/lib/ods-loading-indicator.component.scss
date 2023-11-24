@@ -29,6 +29,11 @@ $dasharray: 89, 200;
 	{
 		display: none;
 	}
+
+	&.sectionOverlay
+	{
+		display: absolute;
+	}
 }
 
 .ontario-loading-indicator
