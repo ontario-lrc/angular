@@ -1,13 +1,15 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation} from "@angular/core";
+import {OdsSelectOption} from "./ods-select.interface";
 
 @Component(
-{
-	selector: "ods-select",
-	templateUrl: "./ods-select.component.html",
-	styleUrls: ["./ods-select.component.scss"],
-	encapsulation: ViewEncapsulation.None,
-	changeDetection: ChangeDetectionStrategy.OnPush
-})
+	{
+		changeDetection: ChangeDetectionStrategy.OnPush,
+		encapsulation: ViewEncapsulation.None,
+		selector: "ods-select",
+		styleUrls: ["./ods-select.component.scss"],
+		templateUrl: "./ods-select.component.html"
+	}
+)
 
 export class OdsSelectComponent
 {
@@ -16,15 +18,12 @@ export class OdsSelectComponent
 	@Input() isRequired: boolean = false;
 	@Input() requiredText!: string;
 	@Input() initOptionText!: string;
-	@Input() options!: OdsSelectInterface[];
+	@Input() options!: OdsSelectOption[];
 
-	@Output() onSelect: EventEmitter<void> = new EventEmitter();
+	@Output() selected: EventEmitter<void> = new EventEmitter();
 
-	constructor(){}
-}
-
-export interface OdsSelectInterface
-{
-	value: string,
-	text: string
+	protected get getDropdownIdAndName(): string
+	{
+		return `dropdown-${this.id}`;
+	}
 }

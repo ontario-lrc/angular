@@ -1,13 +1,14 @@
 import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from "@angular/core";
 
 @Component(
-{
-	selector: "ods-hint-expander",
-	templateUrl: "./ods-hint-expander.component.html",
-	styleUrls: ["./ods-hint-expander.component.scss"],
-	encapsulation: ViewEncapsulation.None,
-	changeDetection: ChangeDetectionStrategy.OnPush
-})
+	{
+		changeDetection: ChangeDetectionStrategy.OnPush,
+		encapsulation: ViewEncapsulation.None,
+		selector: "ods-hint-expander",
+		styleUrls: ["./ods-hint-expander.component.scss"],
+		templateUrl: "./ods-hint-expander.component.html"
+	}
+)
 
 export class OdsHintExpanderComponent
 {
@@ -16,6 +17,14 @@ export class OdsHintExpanderComponent
 	@Input() longHintText!: string;
 	@Input() chevronUpAltText!: string;
 	@Input() chevronDownAltText!: string;
-	
-	constructor(){}
+
+	protected get getHintExpanderButtonId(): string
+	{
+		return `hint-expander-button-${this.id}`;
+	}
+
+	protected get getHintExpanderContentId(): string
+	{
+		return `hint-expander-content-${this.id}`;
+	}
 }

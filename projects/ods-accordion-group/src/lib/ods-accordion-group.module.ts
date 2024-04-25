@@ -1,21 +1,13 @@
+import {CommonModule} from "@angular/common";
 import {NgModule} from "@angular/core";
 import {OdsAccordionGroupComponent} from "./ods-accordion-group.component";
-import {CommonModule} from "@angular/common";
 
 @NgModule(
-{
-	declarations:
-	[
-		OdsAccordionGroupComponent
-	],
-	imports:
-	[
-		CommonModule
-	],
-	exports:
-	[
-		OdsAccordionGroupComponent
-	]
-})
+	{
+		declarations: [OdsAccordionGroupComponent],
+		exports: [OdsAccordionGroupComponent],
+		imports: [CommonModule]
+	}
+)
 
 export class OdsAccordionGroupModule{}

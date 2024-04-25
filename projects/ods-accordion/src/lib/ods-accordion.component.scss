@@ -2,7 +2,6 @@
 @import "@ontario-lrc/ontario-design-system-complete-styles/dist/styles/scss/1-variables/colours.variables";
 @import "@ontario-lrc/ontario-design-system-complete-styles/dist/styles/scss/1-variables/typography.variables";
 @import "@ontario-lrc/ontario-design-system-complete-styles/dist/styles/scss/1-variables/spacing.variables";
-// @import "../../../../assets/scss/ontario-design-system/12col-grid.variables.scss";
 @import "@ontario-lrc/ontario-design-system-complete-styles/dist/styles/scss/2-tools/placeholder/focus.placeholders";
 
 .ontario-accordion
@@ -76,7 +75,7 @@
 	&__button
 	{
 		display: flex;
-		align-items: flex-start;
+		align-items: center;
 	
 		color: $ontario-colour-link;
 		cursor: pointer;
@@ -84,6 +83,12 @@
 		text-align: left;
 		width: $full-width;
 	
+		&-icon--close,
+		&-icon--open
+		{
+			margin-right: $spacing-2;
+		}
+
 		p,
 		h2,
 		h3,
@@ -94,11 +99,10 @@
 			@extend %h4-styles;
 			margin-bottom: 0;
 		}
-	
-		&-icon--close,
-		&-icon--open
+
+		img
 		{
-			margin-right: $spacing-2;
+			filter: invert(27%) sepia(85%) saturate(1789%) hue-rotate(194deg) brightness(92%) contrast(105%);
 		}
 	
 		.ontario-icon
@@ -112,6 +116,11 @@
 		{
 			background-color: $ontario-greyscale-5;
 			color: $ontario-colour-link--hover;
+
+			img
+			{
+				filter: invert(16%) sepia(47%) saturate(4359%) hue-rotate(198deg) brightness(96%) contrast(101%);
+			}
 		}
 	
 		&:focus
@@ -135,7 +144,6 @@
 		*:not(button)
 		{
 			margin-top: 0;
-			// max-width: $standard-width;
 			width: $full-width;
 		}
 	
@@ -168,24 +176,5 @@
 	.ontario-accordion__button-icon--open
 	{
 		display: none;
-	}
-}
-
-.ontario-accordion__button
-{
-	align-items: center;
-
-	img
-	{
-		filter: invert(27%) sepia(85%) saturate(1789%) hue-rotate(194deg) brightness(92%) contrast(105%);
-	}
-
-	&:hover,
-	&:focus
-	{
-		img
-		{
-			filter: invert(16%) sepia(47%) saturate(4359%) hue-rotate(198deg) brightness(96%) contrast(101%);
-		}
 	}
 }

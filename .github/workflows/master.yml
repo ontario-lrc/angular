@@ -13,7 +13,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -25,6 +25,20 @@ jobs:
 
     - name: Perform clean install
       run: npm ci
+
+    - name: Run ESLint
+      run: |
+        npm run lint ods-accordion
+        npm run lint ods-accordion-group
+        npm run lint ods-back-to-top
+        npm run lint ods-breadcrumbs
+        npm run lint ods-button
+        npm run lint ods-hint-expander
+        npm run lint ods-input
+        npm run lint ods-loading-indicator
+        npm run lint ods-page-alert
+        npm run lint ods-select
+        npm run lint ods-step-indicator
 
     - name: Build projects in library
       run: |
@@ -50,7 +64,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     permissions: write-all
-    
+
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -102,7 +116,7 @@ jobs:
 
       - name: Pack for NPM
         run: npm pack
-        
+
       - name: Release to NPM
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMAUTHTOKENFORGITHUBONTARIOLRC}}

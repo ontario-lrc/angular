@@ -1,14 +1,15 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, Input, Renderer2, ViewEncapsulation} from "@angular/core";
+import {AfterViewInit, ChangeDetectionStrategy, Component, Injector, Input, Renderer2, ViewEncapsulation} from "@angular/core";
 import {LoadScriptService} from "@ontario-lrc/angular-services/dist/load-script-service";
 
 @Component(
-{
-	selector: "ods-back-to-top",
-	templateUrl: "./ods-back-to-top.component.html",
-	styleUrls: ["./ods-back-to-top.component.scss"],
-	encapsulation: ViewEncapsulation.None,
-	changeDetection: ChangeDetectionStrategy.OnPush
-})
+	{
+		changeDetection: ChangeDetectionStrategy.OnPush,
+		encapsulation: ViewEncapsulation.None,
+		selector: "ods-back-to-top",
+		styleUrls: ["./ods-back-to-top.component.scss"],
+		templateUrl: "./ods-back-to-top.component.html"
+	}
+)
 
 export class OdsBackToTopComponent implements AfterViewInit
 {
@@ -16,14 +17,26 @@ export class OdsBackToTopComponent implements AfterViewInit
 	@Input({required: true}) iconFolder!: string;
 	@Input({required: true}) iconAltText!: string;
 
-	private readonly _script: string = "/back-to-top.js";
+	readonly #SCRIPT: string = "/back-to-top.js";
 
-	constructor(private _renderer: Renderer2, private _loadScriptService: LoadScriptService){}
+	#renderer: Renderer2;
+	#loadScriptService: LoadScriptService;
+
+	constructor(private _injector: Injector)
+	{
+		this.#renderer = this._injector.get(Renderer2);
+		this.#loadScriptService = this._injector.get(LoadScriptService);
+	}
 
 	ngAfterViewInit(): void
 	{
-		const scriptLocation: string = this.scriptFolder + this._script
+		const scriptLocation: string = this.scriptFolder + this.#SCRIPT;
 
-		this._loadScriptService.loadScript(this._renderer, scriptLocation);
+		this.#loadScriptService.loadScript(this.#renderer, scriptLocation);
+	}
+
+	protected get getImageSrc(): string
+	{
+		return `${this.iconFolder}/ontario-icon-arrow-up.svg`;
 	}
 }

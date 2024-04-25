@@ -1,34 +1,34 @@
 <div class="ontario-alert" [ngClass]="type === 'information' ? 'ontario-alert--informational' : 'ontario-alert--' + type">
 	<div class="ontario-alert__header">
 		<div class="ontario-alert__header-icon" aria-hidden="true">
-			<img src="{{iconFolder}}/ontario-icon-alert-{{type}}.svg" alt="{{iconAltText}}" aria-hidden="true" />
+			<img [src]="getIconPath" [alt]="iconAltText" aria-hidden="true" />
 		</div>
-		
-		<h1 innerHTML="{{heading}}" class="ontario-alert__header-title ontario-h4" *ngIf="headingLevel === 'h1'">
+
+		<h1 [innerHTML]="heading" class="ontario-alert__header-title ontario-h4" *ngIf="headingLevel === 'h1'">
 			{{heading}}
 		</h1>
-		
-		<h2 innerHTML="{{heading}}" class="ontario-alert__header-title ontario-h4" *ngIf="headingLevel === 'h2'">
+
+		<h2 [innerHTML]="heading" class="ontario-alert__header-title ontario-h4" *ngIf="headingLevel === 'h2'">
 			{{heading}}
 		</h2>
 
-		<h3 innerHTML="{{heading}}" class="ontario-alert__header-title ontario-h4" *ngIf="headingLevel === 'h3'">
+		<h3 [innerHTML]="heading" class="ontario-alert__header-title ontario-h4" *ngIf="headingLevel === 'h3'">
 			{{heading}}
 		</h3>
 
-		<h4 innerHTML="{{heading}}" class="ontario-alert__header-title ontario-h4" *ngIf="headingLevel === 'h4'">
+		<h4 [innerHTML]="heading" class="ontario-alert__header-title ontario-h4" *ngIf="headingLevel === 'h4'">
 			{{heading}}
 		</h4>
 
-		<h5 innerHTML="{{heading}}" class="ontario-alert__header-title ontario-h4" *ngIf="headingLevel === 'h5'">
+		<h5 [innerHTML]="heading" class="ontario-alert__header-title ontario-h4" *ngIf="headingLevel === 'h5'">
 			{{heading}}
 		</h5>
 
-		<h6 innerHTML="{{heading}}" class="ontario-alert__header-title ontario-h4" *ngIf="headingLevel === 'h6'">
+		<h6 [innerHTML]="heading" class="ontario-alert__header-title ontario-h4" *ngIf="headingLevel === 'h6'">
 			{{heading}}
 		</h6>
     </div>
-    
+
 	<div class="ontario-alert__body">
 		<ng-content />
     </div>

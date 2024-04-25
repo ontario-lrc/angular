@@ -1,19 +1,19 @@
 <div class="ontario-form-group">
-	<label class="ontario-label" for="dropdown-{{id}}">
+	<label class="ontario-label" [for]="getDropdownIdAndName">
 		{{label}}
-		
+
 		<span class="ontario-label__flag" *ngIf="isRequired">
 			({{requiredText}})
 		</span>
 	</label>
-	
-	<select class="ontario-input ontario-dropdown" id="dropdown-{{id}}" name="dropdown-{{id}}">
+
+	<select class="ontario-input ontario-dropdown" [id]="getDropdownIdAndName" [name]="getDropdownIdAndName">
 		<option value="">
 			{{initOptionText}}
 		</option>
 
 		<ng-container *ngFor="let option of options">
-			<option value="{{option.value}}">
+			<option [value]="option.value">
 				{{option.text}}
 			</option>
 		</ng-container>

@@ -1,13 +1,13 @@
 import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from "@angular/core";
 
 @Component(
-{
-	selector: "ods-input",
-	templateUrl: "./ods-input.component.html",
-	styleUrls: ["./ods-input.component.scss"],
-	encapsulation: ViewEncapsulation.None,
-	changeDetection: ChangeDetectionStrategy.OnPush
-})
+	{
+		changeDetection: ChangeDetectionStrategy.OnPush,
+		encapsulation: ViewEncapsulation.None,
+		selector: "ods-input",
+		templateUrl: "./ods-input.component.html"
+	}
+)
 
 export class OdsInputComponent
 {
@@ -19,6 +19,19 @@ export class OdsInputComponent
 	@Input() hintText?: string;
 	@Input() min?: number;
 	@Input() max?: number;
-	
-	constructor(){}
+
+	protected get getInputHintText(): string
+	{
+		return `signIn-hint-text-${this.id}`;
+	}
+
+	protected get getInputId(): string
+	{
+		return `signIn-input-${this.id}`;
+	}
+
+	protected get getLabelFor(): string
+	{
+		return `signIn-input-${this.id}`;
+	}
 }

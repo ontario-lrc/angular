@@ -1,13 +1,15 @@
 import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from "@angular/core";
+import {OdsPageAlertHeadingLevel, OdsPageAlertType} from "./ods-page-alert.constants";
 
 @Component(
-{
-	selector: "ods-page-alert",
-	templateUrl: "./ods-page-alert.component.html",
-	styleUrls: ["./ods-page-alert.component.scss"],
-	encapsulation: ViewEncapsulation.None,
-	changeDetection: ChangeDetectionStrategy.OnPush
-})
+	{
+		changeDetection: ChangeDetectionStrategy.OnPush,
+		encapsulation: ViewEncapsulation.None,
+		selector: "ods-page-alert",
+		styleUrls: ["./ods-page-alert.component.scss"],
+		templateUrl: "./ods-page-alert.component.html"
+	}
+)
 
 export class OdsPageAlertComponent
 {
@@ -16,27 +18,9 @@ export class OdsPageAlertComponent
 	@Input({required: true}) heading!: string;
 	@Input({required: true}) iconAltText!: string;
 	@Input({required: true}) iconFolder!: string;
+
+	protected get getIconPath(): string
+	{
+		return `${this.iconFolder}/ontario-icon-alert-${this.type}.svg`;
+	}
 }
-
-const OdsPageAlertType =
-{
-	INFORMATION: "information" as "information",
-	WARNING: "warning" as "warning",
-	SUCCESS: "success" as "success",
-	ERROR: "error" as "error"
-};
-
-const OdsPageAlertHeadingLevel =
-{
-	H1: "h1" as "h1",
-	H2: "h2" as "h2",
-	H3: "h3" as "h3",
-	H4: "h4" as "h4",
-	H5: "h5" as "h5",
-	H6: "h6" as "h6"
-};
-
-type OdsPageAlertType = (typeof OdsPageAlertType)[keyof typeof OdsPageAlertType];
-type OdsPageAlertHeadingLevel = (typeof OdsPageAlertHeadingLevel)[keyof typeof OdsPageAlertHeadingLevel]
-
-export{OdsPageAlertType};

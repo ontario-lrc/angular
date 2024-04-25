@@ -1,16 +1,18 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, Renderer2, SkipSelf, ViewChildren, ViewEncapsulation} from "@angular/core";
+import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Injector, Input, OnInit, QueryList, Renderer2, ViewChildren, ViewEncapsulation, inject} from "@angular/core";
+import {DOCUMENT} from "@angular/common";
 import {LoadScriptService} from "@ontario-lrc/angular-services/dist/load-script-service";
 import {OdsAccordionGroupService} from "@ontario-lrc/angular-services/dist/ods-accordion-group-service";
-import {OdsAccordionHeadingLevel} from "./ods-accordion.component.constants";
+import {OdsAccordionHeadingLevel} from "./ods-accordion.constants";
 
 @Component(
-{
-	selector: "ods-accordion",
-	templateUrl: "./ods-accordion.component.html",
-	styleUrls: ["./ods-accordion.component.scss"],
-	encapsulation: ViewEncapsulation.None,
-	changeDetection: ChangeDetectionStrategy.OnPush
-})
+	{
+		changeDetection: ChangeDetectionStrategy.OnPush,
+		encapsulation: ViewEncapsulation.None,
+		selector: "ods-accordion",
+		styleUrls: ["./ods-accordion.component.scss"],
+		templateUrl: "./ods-accordion.component.html"
+	}
+)
 
 export class OdsAccordionComponent implements OnInit, AfterViewInit
 {
@@ -24,20 +26,31 @@ export class OdsAccordionComponent implements OnInit, AfterViewInit
 
 	@ViewChildren("accordionGroup") accordionGroup!: QueryList<ElementRef<HTMLButtonElement>>;
 
-	private readonly _script: string = "/ontario-expand-collapse.js";
-	private _scriptElement!: HTMLScriptElement | undefined;
+	readonly #SCRIPT: string = "/ontario-expand-collapse.js";
 
-	constructor(private _loadScriptService: LoadScriptService, private _renderer: Renderer2, @SkipSelf() private _odsAccordionGroupService: OdsAccordionGroupService){}
+	#scriptElement!: HTMLScriptElement | undefined;
+	#loadScriptService: LoadScriptService;
+	#renderer: Renderer2;
+	#odsAccordionGroupService: OdsAccordionGroupService | null;
+	#document: Document;
+
+	constructor(private _injector: Injector)
+	{
+		this.#loadScriptService = this._injector.get(LoadScriptService);
+		this.#renderer = this._injector.get(Renderer2);
+		this.#odsAccordionGroupService = inject(OdsAccordionGroupService, {skipSelf: true}); // Old: this.#odsAccordionGroupService = this._injector.get(OdsAccordionGroupService, null, InjectFlags.SkipSelf);
+		this.#document = this._injector.get(DOCUMENT);
+	}
 
 	ngOnInit(): void
 	{
-		this._removeScript();
+		this.#removeScript();
 	}
 
 	ngAfterViewInit(): void
 	{
-		this._addScript();
-		this._setup();
+		this.#addScript();
+		this.#setup();
 	}
 
 	protected closeAccordionPanel(): void
@@ -45,39 +58,74 @@ export class OdsAccordionComponent implements OnInit, AfterViewInit
 		this.accordionGroup.last?.nativeElement.click();
 	}
 
-	private _addScript(): void
+	protected get getAccordionId(): string
 	{
-		const scripts: Array<HTMLScriptElement> = Array.from(document.scripts);
-		const scriptFound: boolean = scripts.some((script: HTMLScriptElement) =>
-		{
-			if(script.src.includes(this._script))
+		return `accordion-${this.accordionID}`;
+	}
+
+	protected get getAccordionContentId(): string
+	{
+		return `accordion-content-${this.accordionID}`;
+	}
+
+	protected get getAccordionButtonId(): string
+	{
+		return `accordion-button-id-${this.accordionID}`;
+	}
+
+	protected get getAccordionButtonAriaControls(): string
+	{
+		return `accordion-content-${this.accordionID}`;
+	}
+
+	protected get getChevronDownIcon(): string
+	{
+		return `${this.iconFolder}/ontario-icon-chevron-down.svg`;
+	}
+
+	protected get getChevronUpIcon(): string
+	{
+		return `${this.iconFolder}/ontario-icon-chevron-up.svg`;
+	}
+
+	#addScript(): void
+	{
+		const scripts: Array<HTMLScriptElement> = Array.from(this.#document.scripts),
+			scriptFound: boolean = scripts.some((script: HTMLScriptElement) =>
 			{
-				this._scriptElement = script;
+				if(script.src.includes(this.#SCRIPT))
+				{
+					this.#scriptElement = script;
 
-				return true;
-			}
+					return true;
+				}
 
-			return false;
-		});
+				return false;
+			});
 
 		if(!scriptFound)
 		{
-			const scriptLocation: string = this.ontarioExpandCollapseScriptLocation + this._script;
+			const scriptLocation: string = this.ontarioExpandCollapseScriptLocation + this.#SCRIPT;
 
-			this._scriptElement = this._loadScriptService.loadScript(this._renderer, scriptLocation);
+			this.#scriptElement = this.#loadScriptService.loadScript(this.#renderer, scriptLocation);
 		}
 	}
 
-	private _removeScript(): void
+	#removeScript(): void
 	{
-		if(this._scriptElement)
+		if(this.#scriptElement)
 		{
-			this._loadScriptService.removeScript(this._renderer, this._scriptElement)
+			this.#loadScriptService.removeScript(this.#renderer, this.#scriptElement);
 		}
 	}
 
-	private _setup(): void
+	#setup(): void
 	{
-		this._odsAccordionGroupService.addToAccordionsInGroup = this.accordionGroup.last.nativeElement;
+		if(!this.#odsAccordionGroupService)
+		{
+			throw new Error("No ODS Accordion Group Service found");
+		}
+
+		this.#odsAccordionGroupService.addToAccordionsInGroup = this.accordionGroup.last.nativeElement;
 	}
 }

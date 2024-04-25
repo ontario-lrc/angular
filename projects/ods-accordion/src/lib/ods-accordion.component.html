@@ -1,7 +1,7 @@
-<div class="ontario-accordion" id="accordion-{{accordionID}}" #accordionGroup>
+<div class="ontario-accordion" [id]="getAccordionId" #accordionGroup>
 	<ng-container *ngTemplateOutlet="headerTemplate" />
 
-	<section class="ontario-accordion__content" id="accordion-content-{{accordionID}}" attr.aria-labelledby="accordion-button-id-{{accordionID}}" aria-hidden="true" data-toggle="ontario-expander-content">
+	<section class="ontario-accordion__content" [id]="getAccordionContentId" [attr.aria-labelledby]="getAccordionButtonId" aria-hidden="true" data-toggle="ontario-expander-content">
 		<ng-content />
 
 		<hr />
@@ -41,13 +41,13 @@
 </ng-template>
 
 <ng-template #headerTemplate>
-	<button #accordionGroup class="ontario-accordion__button" id="accordion-button-id-{{accordionID}}" attr.aria-controls="accordion-content-{{accordionID}}" aria-expanded="false" data-toggle="ontario-collapse">
+	<button type="button" #accordionGroup class="ontario-accordion__button" [id]="getAccordionButtonId" [attr.aria-controls]="getAccordionButtonAriaControls" aria-expanded="false" data-toggle="ontario-collapse">
 		<span class="ontario-accordion__button-icon--close">
-			<img src="{{iconFolder}}/ontario-icon-chevron-down.svg" alt="{{closeIconAlt}}" />
+			<img [src]="getChevronDownIcon" [alt]="closeIconAlt" />
 		</span>
 
 		<span class="ontario-accordion__button-icon--open">
-			<img src="{{iconFolder}}/ontario-icon-chevron-up.svg" alt="{{openIconAlt}}" />
+			<img [src]="getChevronUpIcon" [alt]="openIconAlt" />
 		</span>
 
 		<ng-container *ngTemplateOutlet="headingLevelTemplate" />

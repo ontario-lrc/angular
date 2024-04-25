@@ -1,15 +1,16 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, Host, Input, ModuleWithProviders, ViewEncapsulation} from "@angular/core";
+import {AfterViewInit, ChangeDetectionStrategy, Component, Host, Injector, Input, ViewEncapsulation} from "@angular/core";
 import {OdsAccordionGroupService} from "@ontario-lrc/angular-services/dist/ods-accordion-group-service";
 
 @Component(
-{
-	selector: "ods-accordion-group",
-	templateUrl: "./ods-accordion-group.component.html",
-	styleUrls: ["./ods-accordion-group.component.scss"],
-	providers: [OdsAccordionGroupService],
-	encapsulation: ViewEncapsulation.None,
-	changeDetection: ChangeDetectionStrategy.OnPush
-})
+	{
+		changeDetection: ChangeDetectionStrategy.OnPush,
+		encapsulation: ViewEncapsulation.None,
+		providers: [OdsAccordionGroupService],
+		selector: "ods-accordion-group",
+		styleUrls: ["./ods-accordion-group.component.scss"],
+		templateUrl: "./ods-accordion-group.component.html"
+	}
+)
 
 export class OdsAccordionGroupComponent implements AfterViewInit
 {
@@ -17,22 +18,32 @@ export class OdsAccordionGroupComponent implements AfterViewInit
 	@Input({required: true}) collapseAll!: string;
 	@Input({required: false}) onlyOneOpen: boolean = false;
 
-	constructor(@Host() private _accordionGroupService: OdsAccordionGroupService){}
+	#accordionGroupService: OdsAccordionGroupService;
+
+	constructor(@Host() private _injector: Injector)
+	{
+		this.#accordionGroupService = this._injector.get(OdsAccordionGroupService);
+	}
 
 	ngAfterViewInit(): void
 	{
 		this._setup();
 	}
 
+	get getAccordionGroupService(): OdsAccordionGroupService
+	{
+		return this.#accordionGroupService;
+	}
+
 	private _setup(): void
 	{
 		if(this.onlyOneOpen)
 		{
-			const accordions: HTMLButtonElement[] = this._accordionGroupService.getAccordionsInGroup;
-			
+			const accordions: HTMLButtonElement[] = this.#accordionGroupService.getAccordionsInGroup;
+
 			accordions.forEach((accordion: HTMLButtonElement) =>
 			{
-				this._accordionGroupService.setOnClickEvent = accordion;
+				this.#accordionGroupService.setOnClickEvent = accordion;
 			});
 		}
 	}

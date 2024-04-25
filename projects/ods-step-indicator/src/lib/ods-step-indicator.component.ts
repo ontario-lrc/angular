@@ -1,13 +1,14 @@
 import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from "@angular/core";
 
 @Component(
-{
-	selector: "ods-step-indicator",
-	templateUrl: "./ods-step-indicator.component.html",
-	styleUrls: ["./ods-step-indicator.component.scss"],
-	encapsulation: ViewEncapsulation.None,
-	changeDetection: ChangeDetectionStrategy.OnPush
-})
+	{
+		changeDetection: ChangeDetectionStrategy.OnPush,
+		encapsulation: ViewEncapsulation.None,
+		selector: "ods-step-indicator",
+		styleUrls: ["./ods-step-indicator.component.scss"],
+		templateUrl: "./ods-step-indicator.component.html"
+	}
+)
 
 export class OdsStepIndicatorComponent
 {
@@ -15,6 +16,4 @@ export class OdsStepIndicatorComponent
 	@Input() hasBackButton: boolean = false;
 	@Input() backText!: string;
 	@Input() chevronLeftAltText!: string;
-	
-	constructor(){}
 }
