@@ -27,18 +27,7 @@ jobs:
       run: npm ci
 
     - name: Run ESLint
-      run: |
-        npm run lint ods-accordion
-        npm run lint ods-accordion-group
-        npm run lint ods-back-to-top
-        npm run lint ods-breadcrumbs
-        npm run lint ods-button
-        npm run lint ods-hint-expander
-        npm run lint ods-input
-        npm run lint ods-loading-indicator
-        npm run lint ods-page-alert
-        npm run lint ods-select
-        npm run lint ods-step-indicator
+      run: npm run lint
 
     - name: Build projects in library
       run: |
