@@ -34,19 +34,19 @@
 		margin-bottom: $spacing-2;
 		color: $ontario-colour-link;
 		cursor: pointer;
-	
+
 		&:focus,
 		&:hover
 		{
 			color: $ontario-colour-link--hover;
 			text-decoration: underline;
 		}
-	
+
 		&:focus
 		{
 			@extend %ontario-focus;
 		}
-	
+
 		&:active
 		{
 			color: $ontario-colour-link--active;
@@ -65,7 +65,7 @@
 		{
 			display: block;
 		}
-	
+
 		.ontario-accordion--expand-open-all
 		{
 			display: none;
@@ -76,13 +76,13 @@
 	{
 		display: flex;
 		align-items: center;
-	
+
 		color: $ontario-colour-link;
 		cursor: pointer;
 		padding: $spacing-3 $spacing-2;
 		text-align: left;
 		width: $full-width;
-	
+
 		&-icon--close,
 		&-icon--open
 		{
@@ -104,13 +104,13 @@
 		{
 			filter: invert(27%) sepia(85%) saturate(1789%) hue-rotate(194deg) brightness(92%) contrast(105%);
 		}
-	
+
 		.ontario-icon
 		{
 			width: 1.75rem;
 			height: 1.75rem;
 		}
-	
+
 		&:focus,
 		&:hover
 		{
@@ -122,13 +122,13 @@
 				filter: invert(16%) sepia(47%) saturate(4359%) hue-rotate(198deg) brightness(96%) contrast(101%);
 			}
 		}
-	
+
 		&:focus
 		{
 			@extend %ontario-focus;
 			box-shadow: 0 0 0 4px $ontario-colour-focus inset;
 		}
-	
+
 		&:active
 		{
 			color: $ontario-colour-link--active;
@@ -140,19 +140,19 @@
 		display: none;
 		padding: $spacing-3 $spacing-3 $spacing-6 $spacing-3;
 		margin-left: 0;
-	
+
 		*:not(button)
 		{
 			margin-top: 0;
 			width: $full-width;
 		}
-	
+
 		ul,
 		ol
 		{
 			max-width: calc(100% - 3rem);
 		}
-	
+
 		& > :last-child
 		{
 			margin-bottom: 0;

@@ -4,7 +4,7 @@
   "peerDependencies": {
     "@angular/common": "^16.2.0",
     "@angular/core": "^16.2.0",
-	"@ontario-lrc/angular-services": "1.0.0-beta.8"
+	"@ontario-lrc/angular-services": "1.0.0-b.9"
   },
   "dependencies": {
     "tslib": "^2.3.0"
