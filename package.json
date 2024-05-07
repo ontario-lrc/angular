@@ -26,9 +26,9 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
-    "@ontario-lrc/angular-services": "^1.0.0-beta.8",
-    "@ontario-lrc/ontario-design-system-complete-styles": "^2.5.4",
-    "@ontario-lrc/ontario-design-system-global-styles": "^2.5.2",
+    "@ontario-lrc/angular-services": "^1.0.0-b.9",
+    "@ontario-lrc/ontario-design-system-complete-styles": "^4.2.0",
+    "@ontario-lrc/ontario-design-system-global-styles": "^4.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
