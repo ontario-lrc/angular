@@ -52,7 +52,7 @@ $dasharray: 89, 200;
 	{
 		color: colours.$ontario-greyscale-70;
 		font-family: typography.$ontario-font-raleway-modified;
-		font-size: globalFunctions.rem-calc(16);
+		font-size: globalFunctions.px-to-rem(16);
 		line-height: 1.5;
 		font-weight: fontWeights.$ontario-font-weights-bold;
 		word-spacing: 0.025rem;
